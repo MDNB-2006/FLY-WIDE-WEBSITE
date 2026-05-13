@@ -17,18 +17,23 @@ interface Destination {
   featured?: boolean;
 }
 
+const getImagePath = (path: string) => {
+  if (path.startsWith('http')) return path;
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+};
+
 // --- Constants ---
 const DESTINATIONS: Destination[] = [
-  { id: '1', name: 'New York City', country: 'USA', price: 8500, image: '/src/assets/images/regenerated_image_1778674850866.png', featured: true },
+  { id: '1', name: 'New York City', country: 'USA', price: 8500, image: getImagePath('/assets/images/regenerated_image_1778674850866.png'), featured: true },
   { id: '2', name: 'London', country: 'UK', price: 7200, image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80', featured: true },
-  { id: '3', name: 'Dubai', country: 'UAE', price: 4500, image: '/src/assets/images/regenerated_image_1778674852034.png', featured: true },
+  { id: '3', name: 'Dubai', country: 'UAE', price: 4500, image: getImagePath('/assets/images/regenerated_image_1778674852034.png'), featured: true },
   { id: '4', name: 'Agra', country: 'India', price: 2800, image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&q=80', featured: true },
   { id: '5', name: 'Singapore City', country: 'Singapore', price: 5500, image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&q=80' },
-  { id: '6', name: 'Bangkok', country: 'Thailand', price: 2200, image: '/src/assets/images/regenerated_image_1778674853111.png' },
+  { id: '6', name: 'Bangkok', country: 'Thailand', price: 2200, image: getImagePath('/assets/images/regenerated_image_1778674853111.png') },
   { id: '7', name: 'Queenstown', country: 'New Zealand', price: 9800, image: 'https://images.unsplash.com/photo-1505832018823-50331d70d237?auto=format&fit=crop&q=80' },
-  { id: '8', name: 'Tokyo', country: 'Japan', price: 6800, image: '/src/assets/images/regenerated_image_1778674854357.png' },
+  { id: '8', name: 'Tokyo', country: 'Japan', price: 6800, image: getImagePath('/assets/images/regenerated_image_1778674854357.png') },
   { id: '9', name: 'Paris', country: 'France', price: 7800, image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80' },
-  { id: '10', name: 'Rome', country: 'Italy', price: 6500, image: '/src/assets/images/regenerated_image_1778674855717.png' },
+  { id: '10', name: 'Rome', country: 'Italy', price: 6500, image: getImagePath('/assets/images/regenerated_image_1778674855717.png') },
   { id: '11', name: 'Zermatt', country: 'Switzerland', price: 11200, image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80' },
   { id: '12', name: 'Sydney', country: 'Australia', price: 8900, image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&q=80' },
   { id: '13', name: 'Banff', country: 'Canada', price: 7400, image: 'https://images.unsplash.com/photo-1464851707681-f9d5fdaccea8?auto=format&fit=crop&q=80' },
@@ -40,15 +45,15 @@ const DESTINATIONS: Destination[] = [
   { id: '19', name: 'Cape Town', country: 'South Africa', price: 6300, image: 'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?auto=format&fit=crop&q=80' },
   { id: '20', name: 'Giza', country: 'Egypt', price: 3200, image: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&q=80' },
   { id: '21', name: 'Hanoi', country: 'Vietnam', price: 2100, image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80' },
-  { id: '22', name: 'Seoul', country: 'South Korea', price: 6100, image: '/src/assets/images/regenerated_image_1778674856657.png' },
+  { id: '22', name: 'Seoul', country: 'South Korea', price: 6100, image: getImagePath('/assets/images/regenerated_image_1778674856657.png') },
   { id: '23', name: 'Bali', country: 'Indonesia', price: 2500, image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80' },
   { id: '24', name: 'Reykjavik', country: 'Iceland', price: 9200, image: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&q=80' },
   { id: '25', name: 'Bergen', country: 'Norway', price: 8800, image: 'https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&q=80' },
-  { id: '26', name: 'Cusco', country: 'Peru', price: 5400, image: '/src/assets/images/regenerated_image_1778674669751.png' },
+  { id: '26', name: 'Cusco', country: 'Peru', price: 5400, image: getImagePath('/assets/images/regenerated_image_1778674669751.png') },
   { id: '27', name: 'Mexico City', country: 'Mexico', price: 4200, image: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&q=80' },
-  { id: '28', name: 'Lisbon', country: 'Portugal', price: 4900, image: '/src/assets/images/regenerated_image_1778674670998.png' },
-  { id: '29', name: 'Amsterdam', country: 'Netherlands', price: 6200, image: '/src/assets/images/regenerated_image_1778674672438.png' },
-  { id: '30', name: 'Marrakesh', country: 'Morocco', price: 3500, image: '/src/assets/images/regenerated_image_1778674673688.png' },
+  { id: '28', name: 'Lisbon', country: 'Portugal', price: 4900, image: getImagePath('/assets/images/regenerated_image_1778674670998.png') },
+  { id: '29', name: 'Amsterdam', country: 'Netherlands', price: 6200, image: getImagePath('/assets/images/regenerated_image_1778674672438.png') },
+  { id: '30', name: 'Marrakesh', country: 'Morocco', price: 3500, image: getImagePath('/assets/images/regenerated_image_1778674673688.png') },
   { id: '31', name: 'Prague', country: 'Czech Republic', price: 4400, image: 'https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&q=80' },
   { id: '32', name: 'Vienna', country: 'Austria', price: 5800, image: 'https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&q=80' },
 ];
